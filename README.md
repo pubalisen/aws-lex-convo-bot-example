@@ -84,57 +84,6 @@ Configure the following test event to test your lambda function.
 Step 2: Creating your Bot 
 -------------------------
 
-#### Create Amazon Lex IAM Role: lex-exec-role 
-
-Go to Identity and Access Management (IAM) console. In role name, use a
-name that is unique within your AWS account (for example,
-lex-exec-role).
-
-In Select Role Type, choose AWS Service Roles, and then choose AWS
-Lambda.
-
-Note In the current implementation, Amazon Lex service role is not
-available. Therefore, you first create a role using the AWS Lambda as
-the AWS service role. After you create the role, you update the trust
-policy and specify Amazon Lex as the service principal to assume the
-role. In Attach Policy, choose Next Step (that is, you create a role
-without any permissions).
-
-Choose the role you created and update policies as follows:
-
-In the Permissions tab, choose Inline Policies, and then attach the
-following custom policy.
-
-    { 
-    "Version": "2012-10-17", 
-    "Statement": [ 
-    { 
-      "Action": [ 
-        "lambda:InvokeFunction"
-      ], 
-      "Effect": "Allow", 
-      "Resource": "*" 
-      } 
-     ] 
-    }
-
-In the Trust Relationships tab, choose Edit Trust Relationship, and
-specify the Amazon Lex service principal ("lex.amazonaws.com"). The
-updated policy should look as shown:
-
-    {
-     "Version": "2012-10-17",
-     "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lex.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-      }
-     ]
-    }
-
 #### 1. Create Amazon Lex Bot 
 
 Go to Amazon Lex console on create your Amazon lex bot page. Select
@@ -148,6 +97,7 @@ custom app and provide the following information, then choose Create.
       2. Choose an output voice - Salli
       3. Set Session Timeout - 5 mins
       4. Add AMazon lex basic role to your Bot app - lex-exec-role
+      5. IAM Role: AWSServiceRoleForLexBots
 
 ![MacDown Screenshot](https://s3-us-west-2.amazonaws.com/re-invent-botworkshop/website/CreateBot.png)
 

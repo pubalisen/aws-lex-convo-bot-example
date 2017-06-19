@@ -239,11 +239,9 @@ first.
 
   Name      Slot Type                    Prompt
   --------- ---------------------------- -----------------------------------------------------------------------------------------
-  summary   moviePediaInfomovieDetails   What information are you looking for? Year, Actors, Plot, Rating, Votes, Director, All?
+  summary   moviePediaInfomovieDetails   What information are you looking for? , Plot, release date, both?
 
 ###### Remember check the checkbox as both are slots are required for our ChatBot {#toc_30}
-
-![MacDown Screenshot](https://s3-us-west-2.amazonaws.com/re-invent-botworkshop/website/SlotIntent_Mapping.png)
 
 ##### Add Lambda to the Intent 
 
